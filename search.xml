@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test4]]></title>
+    <url>%2F2019%2F03%2F02%2Ftest4%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>test4</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[test3]]></title>
+    <url>%2F2019%2F03%2F02%2Ftest3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>test3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[test2]]></title>
     <url>%2F2019%2F03%2F02%2Ftest2%2F</url>
     <content type="text"><![CDATA[]]></content>
