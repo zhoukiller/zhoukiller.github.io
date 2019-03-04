@@ -449,103 +449,19 @@
       
         
           
-            <h1 id="Text-preprocessing"><a href="#Text-preprocessing" class="headerlink" title="Text preprocessing"></a>Text preprocessing</h1><h2 id="Tokenization"><a href="#Tokenization" class="headerlink" title="Tokenization"></a>Tokenization</h2><h3 id="Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc"><a href="#Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc" class="headerlink" title="Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc."></a>Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc.</h3><p><strong>Tokenization in Keras:</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">texts = [<span class="string">'The cat sat on the mat.'</span>,<span class="string">'The dog ate my homework.'</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.preprocessing.text <span class="keyword">import</span> Tokenizer</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.sequence <span class="keyword">import</span> pad_sequences</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The max number of words in each sample</span></span><br><span class="line">maxlen = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">training_samples = <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Only pick the first max_words words up in tokenization</span></span><br><span class="line">max_words = <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-<p><strong>Create a tokenizer</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tokenizer = Tokenizer(num_words=max_words)</span><br></pre></td></tr></table></figure>
-<p><strong>Build word index</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tokenizer.fit_on_texts(texts)</span><br></pre></td></tr></table></figure>
-<p><strong>Convert texts to a list of word indices</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequences = tokenizer.texts_to_sequences(texts)</span><br></pre></td></tr></table></figure>
-<p><strong>Get word indices</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_index = tokenizer.word_index</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_index</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;ate&apos;: 7,
- &apos;cat&apos;: 2,
- &apos;dog&apos;: 6,
- &apos;homework&apos;: 9,
- &apos;mat&apos;: 5,
- &apos;my&apos;: 8,
- &apos;on&apos;: 4,
- &apos;sat&apos;: 3,
- &apos;the&apos;: 1}
-</code></pre><p><strong>Pad sequences to same length</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pad_sequences(sequences,maxlen=maxlen)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 1, 5],
-       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 1, 6, 7, 8, 9]])
-</code></pre><h3 id="Get-shuffled-word-vectors"><a href="#Get-shuffled-word-vectors" class="headerlink" title="Get shuffled word vectors"></a>Get shuffled word vectors</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">indices = np.arange(data.shape[<span class="number">0</span>])</span><br><span class="line">np.random.shuffle(indices)</span><br><span class="line">data = data[indices]</span><br><span class="line">labels = labels[indices]</span><br></pre></td></tr></table></figure>
-<h3 id="Split-data-into-train-and-validation-dataset"><a href="#Split-data-into-train-and-validation-dataset" class="headerlink" title="Split data into train and validation dataset"></a>Split data into train and validation dataset</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x_train = data[:train_samples]</span><br><span class="line">y_train = labels[:train_samples]</span><br><span class="line">x_val = data[train_samples:train_samples + val_samples]</span><br><span class="line">y_val = labels[train_samples:train_samples + val_samples]</span><br></pre></td></tr></table></figure>
-<h2 id="Word-Vectors"><a href="#Word-Vectors" class="headerlink" title="Word Vectors"></a>Word Vectors</h2><h3 id="One-hot-vectors"><a href="#One-hot-vectors" class="headerlink" title="One-hot vectors"></a>One-hot vectors</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">one_hot_results = tokenizer.texts_to_matrix(texts, mode=<span class="string">'binary'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Word-embeddings"><a href="#Word-embeddings" class="headerlink" title="Word embeddings"></a>Word embeddings</h3><h4 id="Two-ways-to-get-word-embeddings"><a href="#Two-ways-to-get-word-embeddings" class="headerlink" title="Two ways to get word embeddings"></a>Two ways to get word embeddings</h4><ol>
-<li>Get word embeddings for special task meanwhile training.At the begining, the vectors are random initalized vectors.</li>
-<li>Using pretrained vectors by others </li>
-</ol>
-<h4 id="Build-in-models-with-embedding-layer"><a href="#Build-in-models-with-embedding-layer" class="headerlink" title="Build-in models with embedding layer"></a>Build-in models with embedding layer</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Embedding</span><br><span class="line"></span><br><span class="line"><span class="comment"># The first param is the number of tokens, the second is embedding dimensions</span></span><br><span class="line">embedding_layer = Embedding(<span class="number">1000</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> imdb</span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> preprocessing</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">max_features = <span class="number">10000</span></span><br><span class="line">maxlen = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pad sequences to same length</span></span><br><span class="line">x_train = preprocessing.sequence.pad_sequences(x_train, maxlen=maxlen)</span><br><span class="line">x_test = preprocessing.sequence.pad_sequences(x_test, maxlen=maxlen)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Flatten, Dense, Embedding</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(Embedding(max_features, <span class="number">8</span>, input_length=maxlen))</span><br><span class="line"></span><br><span class="line">model.add(Flatten())</span><br><span class="line"></span><br><span class="line">model.add(Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>WARNING:tensorflow:From D:\Anaconda\envs\dl\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Colocations handled automatically by placer.
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=<span class="string">'rmsprop'</span>, loss=<span class="string">'binary_crossentropy'</span>, metrics=[<span class="string">'acc'</span>])</span><br><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
-<pre><code>_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_2 (Embedding)      (None, 20, 8)             80000     
-_________________________________________________________________
-flatten_1 (Flatten)          (None, 160)               0         
-_________________________________________________________________
-dense_1 (Dense)              (None, 1)                 161       
-=================================================================
-Total params: 80,161
-Trainable params: 80,161
-Non-trainable params: 0
-_________________________________________________________________
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">histroy = model.fit(x_train,y_train,</span><br><span class="line">                   epochs=<span class="number">10</span>,</span><br><span class="line">                   batch_size=<span class="number">32</span>,</span><br><span class="line">                   validation_split=<span class="number">0.2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>WARNING:tensorflow:From D:\Anaconda\envs\dl\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Use tf.cast instead.
-Train on 20000 samples, validate on 5000 samples
-Epoch 1/10
-20000/20000 [==============================] - 3s 129us/step - loss: 0.6759 - acc: 0.6042 - val_loss: 0.6398 - val_acc: 0.6810
-Epoch 2/10
-20000/20000 [==============================] - 1s 66us/step - loss: 0.5657 - acc: 0.7428 - val_loss: 0.5467 - val_acc: 0.7206
-Epoch 3/10
-20000/20000 [==============================] - 1s 67us/step - loss: 0.4752 - acc: 0.7808 - val_loss: 0.5113 - val_acc: 0.7384
-Epoch 4/10
-20000/20000 [==============================] - 1s 65us/step - loss: 0.4263 - acc: 0.8079 - val_loss: 0.5008 - val_acc: 0.7454
-Epoch 5/10
-20000/20000 [==============================] - 1s 65us/step - loss: 0.3930 - acc: 0.8257 - val_loss: 0.4981 - val_acc: 0.7540
-Epoch 6/10
-20000/20000 [==============================] - 1s 64us/step - loss: 0.3668 - acc: 0.8394 - val_loss: 0.5013 - val_acc: 0.7534
-Epoch 7/10
-20000/20000 [==============================] - 1s 70us/step - loss: 0.3435 - acc: 0.8534 - val_loss: 0.5051 - val_acc: 0.7518
-Epoch 8/10
-20000/20000 [==============================] - 1s 66us/step - loss: 0.3223 - acc: 0.8658 - val_loss: 0.5132 - val_acc: 0.7486
-Epoch 9/10
-20000/20000 [==============================] - 1s 68us/step - loss: 0.3022 - acc: 0.8765 - val_loss: 0.5213 - val_acc: 0.7492
-Epoch 10/10
-20000/20000 [==============================] - 1s 70us/step - loss: 0.2839 - acc: 0.8860 - val_loss: 0.5302 - val_acc: 0.7466
-</code></pre><h3 id="Pretrained-word-vectors"><a href="#Pretrained-word-vectors" class="headerlink" title="Pretrained word vectors"></a>Pretrained word vectors</h3><h4 id="Using-pretrained-GloVe"><a href="#Using-pretrained-GloVe" class="headerlink" title="Using pretrained GloVe"></a>Using pretrained GloVe</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(os.path.join(glove_dir,<span class="string">'glove.6B.100d.txt'</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">    values = line.split()</span><br><span class="line">    word = values[<span class="number">0</span>]</span><br><span class="line">    coefs = np.asarray(values[<span class="number">1</span>:],dtype=<span class="string">'float32'</span>)</span><br><span class="line">    embeddings_index[word] = coefs</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">embedding_dim = <span class="number">100</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">embedding_matrix = np.zeros((max_words,embedding_dim))</span><br><span class="line"><span class="keyword">for</span> word, i <span class="keyword">in</span>  word_index.items()：</span><br><span class="line">    <span class="keyword">if</span> i &lt; max_words:</span><br><span class="line">        embedding_vec = embeddings_index.get(word)</span><br><span class="line">        <span class="keyword">if</span> embedding_vec <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            embedding_matrix[i] = embedding_vec</span><br></pre></td></tr></table></figure>
-<h4 id="Set-embedding-layer-weights-to-pretrained-vector-matrix"><a href="#Set-embedding-layer-weights-to-pretrained-vector-matrix" class="headerlink" title="Set embedding layer weights to pretrained vector matrix"></a>Set embedding layer weights to pretrained vector matrix</h4><p><strong>If layer 0 is embedding layer in model</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.layers[<span class="number">0</span>].set_weights([embedding_matrix])</span><br><span class="line">model.layers[<span class="number">0</span>].trainable = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
+            <p>
+              Text preprocessingTokenizationTokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokeniz
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/02/Text preprocessing/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -682,17 +598,20 @@ Epoch 10/10
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/02/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
