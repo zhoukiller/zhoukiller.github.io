@@ -96,23 +96,25 @@
 
 
 
-  <meta name="description" content="zhoukiller 个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhoukiller&#39;s tech blog">
-<meta property="og:url" content="https://zhoukiller.ml/index.html">
+  <meta name="description" content="Text preprocessingTokenizationTokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokeniz">
+<meta name="keywords" content="text,preprocessing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Text Processing">
+<meta property="og:url" content="https://zhoukiller.ml/2019/03/02/Text preprocessing/index.html">
 <meta property="og:site_name" content="zhoukiller&#39;s tech blog">
-<meta property="og:description" content="zhoukiller 个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
+<meta property="og:description" content="Text preprocessingTokenizationTokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokeniz">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-04T09:25:55.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhoukiller&#39;s tech blog">
-<meta name="twitter:description" content="zhoukiller 个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
+<meta name="twitter:title" content="Text Processing">
+<meta name="twitter:description" content="Text preprocessingTokenizationTokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokeniz">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zhoukiller.ml/">
+  <link rel="canonical" href="https://zhoukiller.ml/2019/03/02/Text preprocessing/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>zhoukiller's tech blog</title>
+  <title>Text Processing | zhoukiller's tech blog</title>
   
 
 
@@ -170,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -209,7 +210,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -334,9 +335,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -368,10 +369,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/02/Text preprocessing/" class="post-title-link" itemprop="url">Text Processing</a>
+          <h1 class="post-title" itemprop="name headline">Text Processing
+
               
             
           </h1>
@@ -447,9 +446,7 @@
       
 
       
-        
-          
-            <h1 id="Text-preprocessing"><a href="#Text-preprocessing" class="headerlink" title="Text preprocessing"></a>Text preprocessing</h1><h2 id="Tokenization"><a href="#Tokenization" class="headerlink" title="Tokenization"></a>Tokenization</h2><h3 id="Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc"><a href="#Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc" class="headerlink" title="Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc."></a>Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc.</h3><p><strong>Tokenization in Keras:</strong></p>
+        <h1 id="Text-preprocessing"><a href="#Text-preprocessing" class="headerlink" title="Text preprocessing"></a>Text preprocessing</h1><h2 id="Tokenization"><a href="#Tokenization" class="headerlink" title="Tokenization"></a>Tokenization</h2><h3 id="Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc"><a href="#Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc" class="headerlink" title="Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc."></a>Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc.</h3><p><strong>Tokenization in Keras:</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">texts = [<span class="string">'The cat sat on the mat.'</span>,<span class="string">'The dog ate my homework.'</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.preprocessing.text <span class="keyword">import</span> Tokenizer</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.sequence <span class="keyword">import</span> pad_sequences</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The max number of words in each sample</span></span><br><span class="line">maxlen = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">training_samples = <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Only pick the first max_words words up in tokenization</span></span><br><span class="line">max_words = <span class="number">10000</span></span><br></pre></td></tr></table></figure>
@@ -545,8 +542,6 @@ Epoch 10/10
 <h4 id="Set-embedding-layer-weights-to-pretrained-vector-matrix"><a href="#Set-embedding-layer-weights-to-pretrained-vector-matrix" class="headerlink" title="Set embedding layer weights to pretrained vector matrix"></a>Set embedding layer weights to pretrained vector matrix</h4><p><strong>If layer 0 is embedding layer in model</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.layers[<span class="number">0</span>].set_weights([embedding_matrix])</span><br><span class="line">model.layers[<span class="number">0</span>].trainable = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -567,161 +562,50 @@ Epoch 10/10
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhoukiller.ml/2019/03/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhoukiller">
-      <meta itemprop="description" content="zhoukiller 个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhoukiller's tech blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/02/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-02 10:28:30" itemprop="dateCreated datePublished" datetime="2019-03-02T10:28:30+08:00">2019-03-02</time>
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/text/" rel="tag"># text</a>
           
-            
-            
+            <a href="/tags/preprocessing/" rel="tag"># preprocessing</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
+      
+        <div class="post-widgets">
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
         
+
+        
+
+        
+        </div>
       
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -731,14 +615,15 @@ Epoch 10/10
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -758,8 +643,17 @@ Epoch 10/10
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -872,6 +766,23 @@ show_date_time();
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Text-preprocessing"><span class="nav-number">1.</span> <span class="nav-text">Text preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tokenization"><span class="nav-number">1.1.</span> <span class="nav-text">Tokenization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tokenization-is-a-step-which-splits-longer-strings-of-text-into-smaller-pieces-or-tokens-Larger-chunks-of-text-can-be-tokenized-into-sentences-sentences-can-be-tokenized-into-words-etc"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tokenization is a step which splits longer strings of text into smaller pieces, or tokens. Larger chunks of text can be tokenized into sentences, sentences can be tokenized into words, etc.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-shuffled-word-vectors"><span class="nav-number">1.1.2.</span> <span class="nav-text">Get shuffled word vectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Split-data-into-train-and-validation-dataset"><span class="nav-number">1.1.3.</span> <span class="nav-text">Split data into train and validation dataset</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Vectors"><span class="nav-number">1.2.</span> <span class="nav-text">Word Vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-hot-vectors"><span class="nav-number">1.2.1.</span> <span class="nav-text">One-hot vectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-embeddings"><span class="nav-number">1.2.2.</span> <span class="nav-text">Word embeddings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-ways-to-get-word-embeddings"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Two ways to get word embeddings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Build-in-models-with-embedding-layer"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Build-in models with embedding layer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pretrained-word-vectors"><span class="nav-number">1.2.3.</span> <span class="nav-text">Pretrained word vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Using-pretrained-GloVe"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Using pretrained GloVe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set-embedding-layer-weights-to-pretrained-vector-matrix"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Set embedding layer weights to pretrained vector matrix</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1014,6 +925,10 @@ show_date_time();
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1024,6 +939,8 @@ show_date_time();
   
   
 
+
+  
 
 
   
@@ -1366,6 +1283,25 @@ show_date_time();
   
 
   
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 16942,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
 
   
 
